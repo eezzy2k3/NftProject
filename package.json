@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "crypto": "^1.0.1",
+    "json2csv": "^5.0.7",
     "node-csv-json": "^0.2.1"
   }
 }

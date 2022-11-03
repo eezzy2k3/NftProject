@@ -52,6 +52,27 @@ let arrayS = JSON.stringify(arr)
 
 fs.writeFileSync("./updatedjson",`${arrayS}`)
 
+const { Parser } = require('json2csv');
+
+let myData = fs.readFileSync("updatedjson","utf-8")
+// console.log(myData)
+
+myData = JSON.parse(myData);
+ 
+const opts = { myData };
+
+try {
+  const parser = new Parser();
+  const csv = parser.parse(myData,opts);
+  console.log(csv)
+} catch (err) {
+  console.error(err);
+}
+
+fs.writeFileSync("./finalcsv",`${csv}`)
+
+
+
 
 
 
