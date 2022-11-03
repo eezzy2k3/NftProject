@@ -47,6 +47,14 @@ arr.forEach(nft => {
 
 
 
+let arrayS = JSON.stringify(arr)
+
+
+fs.writeFileSync("./updatedjson",`${arrayS}`)
+
+
+
+
 
 
 
