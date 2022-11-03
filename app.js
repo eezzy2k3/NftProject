@@ -8,16 +8,16 @@ const fs = require("fs")
 
 
 
-// node_cj({
-//     input: csv,
-//     output: "output.json"
-//   }, function(err, result){
-//     if(err) {
-//       console.error(err);
-//     }else {
-//       console.log("done")
-//     }
-//   });
+node_cj({
+    input: csv,
+    output: "output.json"
+  }, function(err, result){
+    if(err) {
+      console.error(err);
+    }else {
+      console.log("done")
+    }
+  });
 
   const json = fs.readFileSync("output.json","utf-8")
  
@@ -29,9 +29,9 @@ const fs = require("fs")
     return crypto.createHash('sha256').update(content).digest('hex')
   }
 
- const ashCreates =  sha256(json)
+ const createHash =  sha256(json)
 
- let arr = JSON.parse(json);
+ let jsonNft = JSON.parse(json);
  
   
 
@@ -41,16 +41,16 @@ const fs = require("fs")
  
   
 
-arr.forEach(nft => {
-  nft.mechanic_boot = `${ashCreates}`;
+jsonNft.forEach(nft => {
+  nft.mechanic_boot = `${createHash}`;
 });
 
 
 
-let arrayS = JSON.stringify(arr)
+let jsonString = JSON.stringify(jsonNft)
 
 
-fs.writeFileSync("./updatedjson",`${arrayS}`)
+fs.writeFileSync("./updatedjson",`${jsonString}`)
 
 const { Parser } = require('json2csv');
 
